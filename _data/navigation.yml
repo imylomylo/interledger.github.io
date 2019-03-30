@@ -1,0 +1,10 @@
+- name: About
+  link: about
+- name: Forum
+  link: https://forum.interledger.org
+- name: Docs
+  link: overview
+- name: Community
+  link: community
+- name: News
+  link: news

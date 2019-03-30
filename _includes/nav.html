@@ -12,12 +12,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li{%if page.active-nav == "About" %}  class="active"{% endif %}><a href="about.html">About</a></li>
+
+                    {% for link in site.data.navigation %}
+                    {% assign class = "" %}                
+                        {% if link.link == page.url %}
+                            {% assign class = class | append: " active" %}
+                        {% endif %}
+                        <li><a href="{{ link.link }}" class="{{ class }}">{{ link.name }}</a></li>
+                    {% endfor %}
+
+                <!-- <li{%if page.active-nav == "About" %}  class="active"{% endif %}><a href="about.html">About</a></li>
                 <li{%if page.active-nav == "Forum" %}  class="active"{% endif %}><a href="https://forum.interledger.org">Forum</a></li>
                 <li{%if page.active-nav == "Docs" %}  class="active"{% endif %}><a href="overview.html">Docs</a></li>
                 <li{%if page.active-nav == "Community" %}  class="active"{% endif %}><a href="community.html">Community</a></li>
                 <li{%if page.active-nav == "News" %}  class="active"{% endif %}><a href="news.html">News</a></li>
-                <li><a style="color:rgba(2, 182, 173, 0.9); font-weight:bold" href="https://bit.ly/ILPSummit2019">2019 Summit</a></li>
+                <li><a style="color:rgba(2, 182, 173, 0.9); font-weight:bold" href="https://bit.ly/ILPSummit2019">2019 Summit</a></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
